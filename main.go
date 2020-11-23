@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fyne.io/fyne/container"
 	"image"
 	"image/draw"
 	"image/gif"
@@ -12,7 +13,6 @@ import (
 	"strings"
 	"time"
 
-	"fyne.io/fyne"
 	"fyne.io/fyne/app"
 	"fyne.io/fyne/canvas"
 	"fyne.io/fyne/widget"
@@ -73,13 +73,15 @@ func display(r io.Reader) error {
 	w := a.NewWindow("Hello")
 
 	hello := &widget.Label{Text: "Hello Fyne!"}
-	w.SetContent(&widget.Box{Children: []fyne.CanvasObject{
+	//anigif.Config.Width
+	w.SetContent(container.NewGridWithColumns(1,
+
 		hello,
 		&widget.Button{Text: "Hi!", OnTapped: func() {
 			hello.SetText("Welcome :)")
 		}},
 		loop.dst,
-	}})
+	))
 
 	w.ShowAndRun()
 	return nil
