@@ -75,13 +75,14 @@ func display(r io.Reader) error {
 	hello := &widget.Label{Text: "Hello Fyne!"}
 	//anigif.Config.Width
 	w.SetContent(container.NewGridWithColumns(1,
-
 		hello,
 		&widget.Button{Text: "Hi!", OnTapped: func() {
 			hello.SetText("Welcome :)")
 		}},
 		loop.dst,
 	))
+
+	go loop.run()
 
 	w.ShowAndRun()
 	return nil
