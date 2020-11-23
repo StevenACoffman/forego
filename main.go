@@ -15,7 +15,6 @@ import (
 
 	"fyne.io/fyne/app"
 	"fyne.io/fyne/canvas"
-	"fyne.io/fyne/widget"
 )
 
 func main() {
@@ -68,17 +67,11 @@ func display(r io.Reader) error {
 		dst:      canvas.NewImageFromImage(nil),
 		stopping: false,
 	}
-
+	loop.dst.FillMode=canvas.ImageFillOriginal
 	a := app.New()
-	w := a.NewWindow("Hello")
-
-	hello := &widget.Label{Text: "Hello Fyne!"}
+	w := a.NewWindow("Animated Gif demo")
 	//anigif.Config.Width
 	w.SetContent(container.NewGridWithColumns(1,
-		hello,
-		&widget.Button{Text: "Hi!", OnTapped: func() {
-			hello.SetText("Welcome :)")
-		}},
 		loop.dst,
 	))
 
