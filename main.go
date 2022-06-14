@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"fyne.io/fyne/container"
+	"fyne.io/fyne/v2/container"
 	"image"
 	"image/draw"
 	"image/gif"
@@ -13,8 +13,8 @@ import (
 	"strings"
 	"time"
 
-	"fyne.io/fyne/app"
-	"fyne.io/fyne/canvas"
+	"fyne.io/fyne/v2/app"
+	"fyne.io/fyne/v2/canvas"
 )
 
 func main() {
@@ -67,7 +67,7 @@ func display(r io.Reader) error {
 		dst:      canvas.NewImageFromImage(nil),
 		stopping: false,
 	}
-	loop.dst.FillMode=canvas.ImageFillOriginal
+	loop.dst.FillMode = canvas.ImageFillOriginal
 	a := app.New()
 	w := a.NewWindow("Animated Gif demo")
 	//anigif.Config.Width
